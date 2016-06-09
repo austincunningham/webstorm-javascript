@@ -1,4 +1,4 @@
-# README #
+# README Java scripting summer school#
 
 ### What is this repository for? ###
 
