@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f691429b-b889-4c41-b5c0-a5da6fc9d672" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/function.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/function.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/scope.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="f691429b-b889-4c41-b5c0-a5da6fc9d672" name="Default" comment="" />
     <ignored path="js-lab-2.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -313,12 +308,12 @@
       <updated>1465489769501</updated>
       <workItem from="1465489771178" duration="10563000" />
       <workItem from="1465557899219" duration="15353000" />
-      <workItem from="1465669246213" duration="3400000" />
+      <workItem from="1465669246213" duration="4221000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29316000" />
+    <option name="totallyTimeSpent" value="30137000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
