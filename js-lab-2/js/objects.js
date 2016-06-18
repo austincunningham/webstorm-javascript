@@ -37,6 +37,7 @@ const myLocation =
     console.log('Latatude :' + myLocation.latitude);
     console.log('Longitude :' + myLocation.longitude);
     console.log('Description :' + myLocation.description);
+    return '____________________________________';
   },
 };
 
