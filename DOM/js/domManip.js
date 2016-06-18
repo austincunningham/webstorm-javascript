@@ -1,6 +1,8 @@
 /**
  * Created by austin on 18/06/2016.
  */
+
+/**
 const image = document.getElementById('img1');
 alert('javascript says Image 1 height is ' + image.height);
 
@@ -22,3 +24,19 @@ $images.each(function () {
   alert('Image ' + index + ' height is ' + $(this).height());
   index += 1;
 });
+
+ const images = document.getElementsByTagName('img');
+ alert('Number of images in page is ' + images.length);
+
+ const $images = $("[name='imgs']");
+ alert('Number of images in page is ' + $images.length);
+**/
+
+
+
+const imgDiv = document.getElementById('ictskills-imgs');
+const images = imgDiv.getElementsByTagName('img');
+alert('There are ' + images.length + ' images in this page');
+
+const $images = $("#ictskills-imgs [name='imgs']");
+alert('There are ' + $images.length + ' images with name=\"imgs\" in this page');
