@@ -4,6 +4,16 @@
 let circle;
 let map;
 
+function circleData() {
+  const center = circle.getCenter();
+  const latcenter = center.lat().toString();
+  const lngcenter = center.lng().toString();
+  const radius = circle.getRadius().toString();
+  $("#radius").val(radius);
+  $("#latcenter").val(latcenter);
+  $("#lngcenter").val(lngcenter);
+}
+
 function initialize()
 {
   const center = new google.maps.LatLng(52.254427, -7.185281);
