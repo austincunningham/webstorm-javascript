@@ -1,19 +1,7 @@
-/**
- * Created by austin on 20/06/2016.
- */
 let circle;
 let map;
 let marker;
 
-function circleData() {
-  const center = circle.getCenter();
-  const latcenter = center.lat().toString();
-  const lngcenter = center.lng().toString();
-  const radius = circle.getRadius().toString();
-  $('#radius').val(radius);
-  $('#latcenter').val(latcenter);
-  $('#lngcenter').val(lngcenter);
-}
 
 function initialize()
 {
@@ -24,7 +12,7 @@ function initialize()
     zoom: 12,
     mapTypeId: google.maps.MapTypeId.ROADMAP,
   };
-  const mapDiv          = document.getElementById('map-canvas');
+  const mapDiv = document.getElementById('map-canvas');
   mapDiv.style.width  = '600px';
   mapDiv.style.height = '400px';
   map = new google.maps.Map(mapDiv, mapOptions);
@@ -43,7 +31,45 @@ function initialize()
   circle.setEditable(true);
   circle.setMap(map);
   addMarker(map, center);
+  markerListener(marker);
+  circleListener();
 };
+
+function circleListener()
+{
+  google.maps.event.addListener(circle, 'center_changed', function() {
+    circleData();
+  });
+  google.maps.event.addListener(circle, 'radius_changed', function() {
+    circleData();
+  });
+}
+
+function markerListener()
+{
+  google.maps.event.addListener(marker, 'drag', function() {
+    markerData();
+  });
+}
+
+function circleData() {
+  const center = circle.getCenter();
+  const latcenter = center.lat().toString();
+  const lngcenter = center.lng().toString();
+  const radius = circle.getRadius().toString();
+  $('#radius').val(radius);
+  $('#latcenter').val(latcenter);
+  $('#lngcenter').val(lngcenter);
+}
+
+function markerData()
+{
+  const latLng = marker.getPosition();
+  const latlong = latLng.lat().toString().substring(0, 10) + ',' + latLng.lng().toString().substring(0, 10);
+  //publish lat long in geolocation control in html page
+  $('#geolocation').val(latlong);
+}
+
 function addMarker(map, center)
 {
   // create a marker
@@ -56,11 +82,4 @@ function addMarker(map, center)
   marker.setMap(map);
 };
 
-function markerData()
-{
-  const latLng = marker.getPosition();
-  const latlong = latLng.lat().toString().substring(0,10) + ',' + latLng.lng().toString().substring(0,10);
-  //publish lat long in geolocation control in html page
-  $('#geolocation').val(latlong);
-}
 google.maps.event.addDomListener(window, 'load', initialize);
