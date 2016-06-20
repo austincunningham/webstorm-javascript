@@ -33,15 +33,18 @@ function initialize()
   addMarker(map, center);
   markerListener(marker);
   circleListener();
+  isMarkerInCircle();
 };
 
 function circleListener()
 {
   google.maps.event.addListener(circle, 'center_changed', function() {
     circleData();
+    isMarkerInCircle();
   });
   google.maps.event.addListener(circle, 'radius_changed', function() {
     circleData();
+    isMarkerInCircle();
   });
 }
 
@@ -49,6 +52,7 @@ function markerListener()
 {
   google.maps.event.addListener(marker, 'drag', function() {
     markerData();
+    isMarkerInCircle();
   });
 }
 
@@ -80,6 +84,20 @@ function addMarker(map, center)
     draggable: true,
   });
   marker.setMap(map);
+};
+function isMarkerInCircle()
+{
+  const ccenter = circle.getCenter();
+  const mcenter = marker.getPosition();
+  const distance = google.maps.geometry.spherical.computeDistanceBetween(ccenter, mcenter);
+  const isInCircle = distance <= circle.getRadius();
+  if (isInCircle)
+  {
+    $('#markerpos').val('inside');
+  }else
+  {
+    $('#markerpos').val('outside');
+  }
 };
 
 google.maps.event.addDomListener(window, 'load', initialize);
